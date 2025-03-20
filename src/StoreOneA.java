@@ -14,7 +14,7 @@ public class StoreOneA extends StoreToRent{
         if(specialCustomer){
             return monthlyPayment -= (monthlyPayment * DISCOUNT_RATE);
         }else{
-            return monthlyPayment;
+        return monthlyPayment;
         }
     }
 
@@ -23,16 +23,16 @@ public class StoreOneA extends StoreToRent{
         }
     
     public String toString(){
-        super.toString();
+        String StoreToRent = super.toString();
         double loanAmount = getloanAmount();
         int loanPaymentTerm = getloanPaymentTerm();
         double INTEREST_RATE = getINTEREST_RATE();
-        return "LOAN DETAILS (if applicable): " + "\n" + 
+        return StoreToRent + "LOAN DETAILS (if applicable): " + "\n" + 
         "Loan Amount: " + loanAmount +"\n" + 
-        "Loan Payment Term" + loanPaymentTerm + "\n" + 
-        "Interest Rate" + INTEREST_RATE +"\n" + 
-        "Special Customer" + specialCustomer +"\n" + 
-        "Monthly Payment" + monthlyPayment + "\n";
+        "Loan Payment Term: " + loanPaymentTerm + "\n" + 
+        "Interest Rate: " + INTEREST_RATE +"\n" + 
+        "Special Customer: " + specialCustomer +"\n" + 
+        "Monthly Payment: " + monthlyPayment + "\n";
         }
     
     }
