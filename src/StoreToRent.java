@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class StoreToRent {
     
     private static final double MAINTENANCE_COST = 1000;
+    private static final double INTEREST_RATE = 0.25;
     
     
     private String storeName;
@@ -14,6 +15,26 @@ public class StoreToRent {
     private String minimumLeasePeriod;
     private String floorNumber;
     private boolean available;
+
+    private double loanAmount;
+    private int loanPaymentTerm;
+    private boolean loanRequired;
+
+    public double getloanAmount(){
+        return loanAmount;
+    }
+
+    public int getloanPaymentTerm(){
+        return loanPaymentTerm;
+    }
+
+    public boolean getloanRequired(){
+        return loanRequired;
+    }
+
+    public double getINTEREST_RATE(){
+        return INTEREST_RATE;
+    }
 
     public String getStoreName() {
         return storeName;
@@ -79,6 +100,12 @@ public class StoreToRent {
         this.available = available;
     }
 
+    StoreToRent(double loanAmount, int loanPaymentTerm, boolean loanRequired){
+        this.loanAmount = loanAmount;
+        this.loanPaymentTerm = loanPaymentTerm;
+        this.loanRequired = loanRequired;
+    }
+
     public void enterStoreDetails(){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Store Name: ");
@@ -116,5 +143,13 @@ public class StoreToRent {
         "Floor Number: " + floorNumber + "\n" +
         "Maintenance Cost: €" + MAINTENANCE_COST + "\n" +
         "Available: " + available + "\n";
+    }
+
+    public double calculateLoanFiancing(){
+        if(loanRequired){
+            return (loanAmount * (1 + INTEREST_RATE)) / loanPaymentTerm;
+        }else{
+            return 0;
+        }
     }
 }
